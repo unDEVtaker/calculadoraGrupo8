@@ -1,9 +1,22 @@
-const sumar = require('./sumar');
-const restar = require('./restar');
-const multiplicar = require('./multiplicar');
-const dividir = require('./dividir');
+const args = process.argv.slice(2); 
 
- console.log(sumar(2, 3)); // 5
- console.log(restar(5, 2)); // 3
- console.log(multiplicar(4, 3)); // 12
- console.log(dividir(10, 2)); // 5
+
+if (args.length < 3) {
+  console.log("Por favor, ingrese lo que desea hacer y 2 valores numéricos. Ej: `multiplicar 2 5`");
+  process.exit(1);
+}
+
+
+const multiplicar = require('./multiplicar');
+
+
+const operacion = args[0];
+const a = args[1]; 
+const b = args[2]; 
+
+
+if (operacion === 'multiplicar') {
+  console.log(multiplicar(a, b));
+} else {
+  console.log(`Operación desconocida: ${operacion}`);
+}
