@@ -4,6 +4,8 @@ const restar = require('./restar');
 const multiplicacion = require('./multiplicar');
 const division = require('./division');
 const suma = require('./suma');
+const potencia = require('./potencia')
+const raiz = require('./raiz')
 
 if (args.length < 3) {  // Verificar que haya al menos 3 argumentos
     console.log("Por favor, ingrese 2 valores numéricos y un operador.");
@@ -34,6 +36,12 @@ switch (operador) {
             process.exit(1);
         }
         resultado = division(a, b);
+        break;
+    case 'potencia':
+        resultado = potencia(a, b)
+        break;
+    case 'raiz':
+        resultado = raiz(a, b)
         break;
     default:
         console.log("Operador no válido. Use sumar, restar, mult o div");
