@@ -1,14 +1,16 @@
 const args = process.argv.slice(2)
 
-if (args.length < 2) {
+if (args.length < 3) {
     console.log("Por favor, ingrese 2 valores numericos."); 
     console.log("Por favor, la cuenta que quiere realizar."); 
     process.exit;
 } 
 
-const a = args[0]
-const b = args[1]
+const a = args[0];
+const b = args[1];
 const operador = args[2];
+
+const restar = require('./restar');
 
 let resultado;
 switch (operador) {
@@ -16,7 +18,7 @@ switch (operador) {
         resultado = suma(a, b);
         break;
     case '-':
-        resultado = restar([a, b]);
+        resultado = restar(a, b);
         break;
     case '*':
         resultado = multiplicacion(a, b);
@@ -32,7 +34,6 @@ switch (operador) {
 console.log(`Resultado: ${a} ${operador} ${b} = ${resultado}`);
 
 // const sumar = require('./sumar');
-const restar = require('./restar');
 // const multiplicar = require('./multiplicar');
 // const dividir = require('./dividir');
 
